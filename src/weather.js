@@ -33,11 +33,15 @@ async function getWeather(city) {
 
     const APIURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`;
     const RESPONSE = await fetch(APIURL);
-    console.log(RESPONSE);
+    if(!RESPONSE.ok){
+        throw new Error("City Not Found");
+    }
+
+    return await RESPONSE.json();
 }
 
 function displayWeatherInfo(data) {
-
+    console.log(data);
 }
 
 function getWeatherEmoji(weatherid) {
