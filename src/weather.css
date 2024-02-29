@@ -7,3 +7,9 @@
 .errordisplay {
     text-align: center;
 }
+
+.card {
+    display: block;
+    justify-content: center;
+    text-align: center;
+}

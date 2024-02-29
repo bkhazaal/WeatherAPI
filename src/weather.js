@@ -42,11 +42,29 @@ async function getWeather(city) {
 
 function displayWeatherInfo(data) {
     console.log(data);
+    const { name: city,
+            main:{temp, humidity}, 
+            weather: [{description}]} = data;
+    
+    CARD.textContent = "";
+
+    const CITYSTATEDISPLAY = document.createElement("h1");
+    const TEMPDISPLAY = document.createElement("p");
+    const HUMIDITYDISPLAY = document.createElement("p");
+    const DESCDISPLAY = document.createElement("p");
+
+    CITYSTATEDISPLAY.textContent = city;
+    CARD.appendChild(CITYSTATEDISPLAY);
+    TEMPDISPLAY.textContent = `${((temp - 273.15) * (9/5) + 32).toFixed(1)} F`;
+    CARD.appendChild(TEMPDISPLAY);
+    HUMIDITYDISPLAY.textContent = `${humidity} %`;
+    CARD.appendChild(HUMIDITYDISPLAY);
+    DESCDISPLAY.textContent = description.toUpperCase();
+    CARD.appendChild(DESCDISPLAY);
+
+
 }
 
-function getWeatherEmoji(weatherid) {
-
-}
 
 function displayError(message) {
     const ERRORDISPLAY = document.createElement("p");
