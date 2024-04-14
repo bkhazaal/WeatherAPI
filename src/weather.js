@@ -44,6 +44,7 @@ function displayWeatherInfo(data) {
     console.log(data);
     const { name: city,
             main:{temp, humidity}, 
+            sys:{country},
             weather: [{description}]} = data;
     
     CARD.textContent = "";
@@ -52,6 +53,9 @@ function displayWeatherInfo(data) {
     const TEMPDISPLAY = document.createElement("p");
     const HUMIDITYDISPLAY = document.createElement("p");
     const DESCDISPLAY = document.createElement("p");
+    const COUNTRYDISPLAY = document.createElement("p");
+    
+
 
     CITYSTATEDISPLAY.textContent = city;
     CARD.appendChild(CITYSTATEDISPLAY);
@@ -59,8 +63,10 @@ function displayWeatherInfo(data) {
     CARD.appendChild(TEMPDISPLAY);
     HUMIDITYDISPLAY.textContent = `${humidity} %`;
     CARD.appendChild(HUMIDITYDISPLAY);
-    DESCDISPLAY.textContent = description.toUpperCase();
+    DESCDISPLAY.textContent = description;
     CARD.appendChild(DESCDISPLAY);
+    COUNTRYDISPLAY.textContent = country;
+    CARD.appendChild(COUNTRYDISPLAY);
 
 
 }
