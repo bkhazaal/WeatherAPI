@@ -4,7 +4,8 @@
   "main": "weather.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "node ./src/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "express": "^4.19.2",
     "lodash": "^4.17.21"
   }
 }
