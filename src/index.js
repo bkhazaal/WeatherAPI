@@ -1,3 +1,5 @@
+import { camelCase } from "lodash";
+
 const WEATHERFORM = document.querySelector(".container");
 const CITYINPUT = document.querySelector(".cityInput");
 const CARD = document.querySelector(".card");
@@ -57,7 +59,7 @@ function displayWeatherInfo(data) {
     
 
 
-    CITYSTATEDISPLAY.textContent = city;
+    CITYSTATEDISPLAY.textContent = camelCase(city);
     CARD.appendChild(CITYSTATEDISPLAY);
     TEMPDISPLAY.textContent = `${((temp - 273.15) * (9/5) + 32).toFixed(1)} F`;
     CARD.appendChild(TEMPDISPLAY);
@@ -79,3 +81,4 @@ function displayError(message) {
     CARD.textContent = "";
     CARD.appendChild(ERRORDISPLAY);
 }
+
